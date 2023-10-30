@@ -1,0 +1,33 @@
+name: pople
+channels:
+  - conda-forge
+dependencies:
+  - python >=3.10
+  - pip
+  - natsort
+  - numpy
+  - scikit-learn
+  - pandas
+  - openpyxl
+  - jupyterlab >=4.0
+  - ipywidgets >=8.0
+  - matplotlib
+  - seaborn
+  - adjusttext
+  - scipy
+  - statsmodels
+  - mlxtend
+  - morfeus-ml
+  - rdkit
+  - xyz2mol
+  - openbabel
+  - nodejs
+  - tqdm
+  - umap-learn
+  - kneed
+  - spyrmsd
+  - mols2grid
+  - pip:
+    - ipympl
+    - mplcursors
+    - isort
