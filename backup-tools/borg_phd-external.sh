@@ -1,12 +1,13 @@
-# Define backup directory and borg repository paths
+#!/bin/bash
 
 timestamp=$(date "+%Y-%m-%d_%H-%M-%S")
 
-BORG_DIR="/mnt/wsl/PHYSICALDRIVE3p1/borg/zotero"
-TARGET_DIR="$HOME""/windata/Users/attilio/Zotero"
+# Define backup directory and borg repository paths
+BORG_DIR=""$HOME"/cloud/chembox/borg/phd-external"
+TARGET_DIR="/mnt/wsl/phd-external/projects"
 
 # Define logfile path
-logfile="$HOME"/logs/"$timestamp"_borg_zotero.log
+logfile=/tmp/borg-create_"$timestamp".log
 
 # Check if both backup dir and borg dir exists
 if [ ! -d $BORG_DIR ]; then
@@ -26,7 +27,6 @@ cd "$target_dir"
 echo "Starting BORG Backup"
 echo "Borg Directory: "$borg_dir""
 echo "Target Directory: "$target_dir""
-echo "Target Size: $(du -sh "$target_dir")"
 echo "Logfile: "$logfile"" 
-borg create --stats "$borg_dir"::"$timestamp" *
+borg create --stats --progress "$borg_dir"::"$timestamp" *
 cd "$HOME"
