@@ -2,13 +2,13 @@
 
 timestamp=$(date "+%Y-%m-%d_%H-%M-%S")
 
-SOURCE_DIR="$PWD"
-TARGET_DIR="$1"
+SOURCE_DIR=$1
+TARGET_DIR=$2
 
 logfile=/tmp/rclone-sync_"$timestamp".log
 
 source_dir=$(realpath "$SOURCE_DIR")
-target_dir=$TARGET_DIR
+target_dir=$(realpath "$TARGET_DIR")
 
 rclone sync \
   $source_dir $target_dir \
