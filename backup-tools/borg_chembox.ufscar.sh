@@ -3,8 +3,8 @@
 timestamp=$(date "+%Y-%m-%d_%H-%M-%S")
 
 # Define backup directory and borg repository paths
-BORG_DIR=""$HOME"/cloud/chembox/borg/phd-external"
-TARGET_DIR="/mnt/wsl/phd-external/projects"
+BORG_DIR="$HOME"/cloud/chembox/borg/ufscar.chembox
+TARGET_DIR="$HOME"/projects/ufscar
 
 # Define logfile path
 logfile=/tmp/borg-create_"$timestamp".log
