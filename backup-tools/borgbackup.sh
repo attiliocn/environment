@@ -9,13 +9,21 @@ TARGET_DIR=$2
 # Define logfile path
 logfile=/tmp/borg-create_"$timestamp".log
 
-# Check if both backup dir and borg dir exists
+# Check if BORG_DIR exist
 if [ ! -d $BORG_DIR ]; then
   echo "BORG dir does not exist"
   exit
-elif [ ! -d $TARGET_DIR ]; then
-  echo "TARGET dir does not exist"
-  exit
+fi
+
+# Check if TARGET_DIR exist and is not empty
+if [ -d "$TARGET_DIR" ]; then
+    if [ ! "$(ls -A $TARGET_DIR)" ]; then
+        echo "Directory '$TARGET_DIR' exists but is empty."
+        exit
+    fi
+else
+    echo "Directory '$TARGET_DIR' does not exist."
+    exit
 fi
 
 # Get realpaths for bkp dir and borg dir
