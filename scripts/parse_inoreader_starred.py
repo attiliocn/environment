@@ -25,6 +25,6 @@ for starred_item in json_data['items']:
         else:
             item_id = item_url
 
-        print("{: <81} {: <} {: <}".format(item_title[:80], item_url, item_id))
+        print(f"{item_title[:80]}|{item_url}|{item_id}")
 
-        inoreader_data.close()
+inoreader_data.close()
