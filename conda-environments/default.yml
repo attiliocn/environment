@@ -1,4 +1,4 @@
-name: pople
+name: default
 channels:
   - conda-forge
 dependencies:
@@ -18,7 +18,7 @@ dependencies:
   - statsmodels
   - mlxtend
   - morfeus-ml
-  - rdkit
+  - rdkit >=2024.03.2
   - xyz2mol
   - openbabel
   - nodejs
