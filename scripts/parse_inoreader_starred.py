@@ -13,7 +13,7 @@ for starred_item in json_data['items']:
         item_title = starred_item['title']
         item_url = starred_item['canonical'][0]['href']
 
-        pattern = '10.\d{4,9}/[-._;()/:A-Za-z0-9]+'
+        pattern = r'10.\d{4,9}/[-._;()/:A-Za-z0-9]+'
         item_doi = re.findall(pattern, item_url)
 
         if item_doi:
