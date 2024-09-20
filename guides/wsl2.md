@@ -116,6 +116,7 @@
     alias rm='rm -v'
     alias md='mkdir'
     alias lls='ls -l -h -v --group-directories-first'
+    alias ks='ls -1vh --group-directories-first'
     alias ll='ls -l'
     alias vi='nvim'
     alias ee='explorer.exe .'
