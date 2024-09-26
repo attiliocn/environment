@@ -5,6 +5,8 @@ function setup-tmux() {
     tmux new-session -d -s bkp
     tmux new-session -d -s dev
     tmux new-session -d -s ssh
+    tmux new-window -t ssh -n curie
+    tmux new-window -t ssh -n ufscar
     tmux new-session -d -s slib -c $HOME/projects/ufscar/ufscar.schrock-lib
     tmux new-session -d -s mox -c $HOME/projects/ufscar/ufscar.schrock-exchange
     tmux new-session -d -s vx -c $HOME/projects/ufscar/ufscar.vanadium
