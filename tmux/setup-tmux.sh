@@ -9,7 +9,7 @@ function setup-tmux() {
     tmux new-window -t ssh -n ufscar
     tmux new-session -d -s slib -c $HOME/projects/ufscar/ufscar.schrock-lib
     tmux new-session -d -s mox -c $HOME/projects/ufscar/ufscar.schrock-exchange
-    tmux new-session -d -s vx -c $HOME/projects/ufscar/ufscar.vanadium
+    tmux new-session -d -s vox -c $HOME/projects/ufscar/ufscar.vanadium
     tmux new-session -d -s meta -c $HOME/projects/ufscar/ufscar.schrock-metathesis
     tmux attach-session -t docs
 }
