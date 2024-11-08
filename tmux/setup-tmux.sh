@@ -1,16 +1,28 @@
 #!/bin/bash
 
 function setup-tmux() {
-    tmux new-session -d -s docs -c $HOME/md "nvim caderno\ laboratorio\ vol2.md"
-    tmux new-session -d -s bkp
-    tmux new-session -d -s dev
-    tmux new-session -d -s ssh
+    # new session for documentation and log 
+    tmux new-session -ds docs -c "$HOME/md" "nvim 'caderno laboratorio vol2.md'"
+    tmux split-window -h -t docs
+    tmux split-window -v -t docs:0.1
+    # new session for backup utilites
+    tmux new-session -ds bkp
+    # new session for development/programming
+    tmux new-session -ds dev
+    # new session for ssh conections
+    tmux new-session -ds ssh
     tmux new-window -t ssh -n curie
     tmux new-window -t ssh -n ufscar
-    tmux new-session -d -s slib -c $HOME/projects/ufscar/ufscar.schrock-lib
-    tmux new-session -d -s mox -c $HOME/projects/ufscar/ufscar.schrock-exchange
-    tmux new-session -d -s vox -c $HOME/projects/ufscar/ufscar.vanadium
-    tmux new-session -d -s meta -c $HOME/projects/ufscar/ufscar.schrock-metathesis
+    # new session for ufscar.slib project
+    tmux new-session -ds slib -c "$HOME/projects/ufscar/ufscar.schrock-lib"
+    # new session for ufscar.mox project
+    tmux new-session -ds mox -c "$HOME/projects/ufscar/ufscar.schrock-exchange"
+    # new session for ufscar.vox project
+    tmux new-session -ds vox -c "$HOME/projects/ufscar/ufscar.vanadium"
+    # new session for ufscar.meta project 
+    tmux new-session -ds meta -c "$HOME/projects/ufscar/ufscar.schrock-metathesis"
+    
+    # attach to the docs session after setting up everything
     tmux attach-session -t docs
 }
 
