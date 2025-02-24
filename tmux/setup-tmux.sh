@@ -2,9 +2,8 @@
 
 function setup-tmux() {
     # new session for documentation and log 
-    tmux new-session -ds docs -c "$HOME/projects/_manager" "nvim 'log 2025.md'"
-    tmux split-window -h -t docs
-    tmux split-window -v -t docs:0.1
+    tmux new-session -ds docs -c "$HOME/projects/_manager" "nvim log-2025.md"
+    tmux split-window -v -t docs
     # new session for backup utilites
     tmux new-session -ds bkp
     # new session for development/programming
