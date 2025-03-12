@@ -12,12 +12,12 @@ function setup-tmux() {
     tmux new-session -ds ssh
     tmux new-window -t ssh -n curie
     tmux new-window -t ssh -n ufscar
+    # new session for jupyter notebooks
+    tmux new-session -ds notebooks
     # new session for ufscar.slib project
     tmux new-session -ds slib -c "$HOME/projects/ufscar/ufscar.schrock-lib"
     # new session for ufscar.mox project
     tmux new-session -ds mox -c "$HOME/projects/ufscar/ufscar.schrock-exchange"
-    # new session for ufscar.vox project
-    tmux new-session -ds vox -c "$HOME/projects/ufscar/ufscar.vanadium"
     # new session for ufscar.meta project 
     tmux new-session -ds meta -c "$HOME/projects/ufscar/ufscar.schrock-metathesis"
     
