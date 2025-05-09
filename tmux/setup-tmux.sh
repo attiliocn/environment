@@ -1,16 +1,14 @@
 #!/bin/bash
 
 function setup-tmux() {
-    # new session for documentation and log 
-    tmux new-session -ds docs -c "$HOME/projects/_manager" "nvim log-2025.md"
-    tmux split-window -v -t docs  -c "$HOME/projects/_manager" "nvim current-tasks.md"
+    # new session for misc
+    tmux new-session -ds misc
     # new session for backup utilites
     tmux new-session -ds bkp
     # new session for development/programming
     tmux new-session -ds dev
     # new session for ssh conections
-    tmux new-session -ds ssh
-    tmux new-window -t ssh -n curie
+    tmux new-session -ds ssh -n curie
     tmux new-window -t ssh -n ufscar
     # new session for jupyter notebooks
     tmux new-session -ds notebooks
@@ -21,6 +19,6 @@ function setup-tmux() {
     # new session for ufscar.meta project 
     tmux new-session -ds meta -c "$HOME/projects/ufscar/ufscar.schrock-metathesis"
     
-    # attach to the docs session after setting up everything
-    tmux attach-session -t docs
+    # attach to tmux after setting up everything
+    tmux attach-session -t misc
 }
