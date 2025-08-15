@@ -7,6 +7,12 @@
 - PowerLevel 10k <https://github.com/romkatv/powerlevel10k>
 - mamba
 
+> 💡 **Tip:** Use `reflector` for select the best mirrors easily. 
+```bash
+sudo reflector --country Brazil --latest 5 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+```
+
+
 ## System Tools and Softwares
 - Install texlive from `https://tug.org/texlive/quickinstall.html`
 - Install the software listed below using yay
