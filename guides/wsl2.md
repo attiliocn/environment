@@ -199,7 +199,7 @@ unbind-key %
     - `mamba env create -f default.yml`
     - Install PyEnergyDiagrams from <https://github.com/giacomomarchioro/PyEnergyDiagrams>
 - Compile from source
-    - Molden
+    - Molden (checkout the custom .moldenrc file below)
     - Pymol
     - NBO7
     - nciplot
@@ -271,6 +271,113 @@ unbind-key %
             mamba activate default
             ```
 
+Custom `.moldenrc` file
+```bash
+H 13 0.430000
+He 9 0.741000
+Li 1 0.880000
+Be 2 0.550000
+B 3 1.030000
+C 4 0.900000
+N 5 0.880000
+O 7 0.880000
+F 9 0.840000
+Ne 9 0.815000
+Na 1 1.170000
+Mg 2 1.300000
+Al 3 1.550000
+Si 14 1.400000
+P 6 1.250000
+S 8 1.220000
+Cl 10 1.190000
+Ar 14 0.995000
+K 1 1.530000
+Ca 2 1.190000
+Sc 13 1.640000
+Ti 13 1.670000
+V 4 1.530000
+Cr 14 1.550000
+Mn 1 1.555000
+Fe 14 1.540000
+Co 14 1.530000
+Ni 14 1.700000
+Cu 6 1.720000
+Zn 14 1.650000
+Ga 3 1.420000
+Ge 14 1.370000
+As 1 1.410000
+Se 6 1.420000
+Br 11 1.410000
+Kr 14 1.069000
+Rb 1 1.670000
+Sr 11 1.320000
+Y 14 1.980000
+Zr 14 1.760000
+Nb 14 1.680000
+Mo 14 1.670000
+Tc 14 1.550000
+Ru 14 1.600000
+Rh 14 1.650000
+Pd 14 1.700000
+Ag 9 1.790000
+Cd 8 1.890000
+In 3 1.830000
+Sn 14 1.660000
+Sb 1 1.660000
+Te 6 1.670000
+I 12 1.600000
+Xe 14 1.750000
+Cs 1 1.870000
+Ba 11 1.540000
+La 14 2.070000
+Ce 14 2.030000
+Pr 14 2.020000
+Nd 14 2.010000
+Pm 14 2.000000
+Sm 14 2.000000
+Eu 14 2.190000
+Gd 14 1.990000
+Tb 14 1.960000
+Dy 14 1.950000
+Ho 14 1.940000
+Er 10 1.930000
+Tm 10 1.920000
+Yb 10 2.140000
+Lu 10 1.920000
+Hf 14 1.770000
+Ta 14 1.630000
+W 14 1.570000
+Re 14 1.550000
+Os 14 1.570000
+Ir 14 1.520000
+Pt 14 1.700000
+Au 8 1.700000
+Hg 4 1.900000
+Tl 3 1.750000
+Pb 14 1.740000
+Bi 1 1.740000
+Po 6 1.880000
+At 11 0.200000
+Rn 14 0.200000
+Fr 1 0.200000
+Ra 11 2.100000
+Ac 14 2.080000
+Th 14 1.990000
+Pa 14 1.810000
+U 14 1.780000
+Np 14 1.750000
+Pu 14 0.200000
+Am 14 1.710000
+Cm 1 0.200000
+Bk 1 0.200000
+Cf 12 1.730000
+background 0 
+oglbackground 13 
+backgroundmode 0 
+palette #AA5CF2 #C2FF00 #FFB5B5 #ADADAD #3333FF #FF7F00 #EA0026 #FFD023 #B2FFFF #1EF01E #A52929 #940094 #E5E5E5 #54B5B5 
+newrot
+```
+
 ## Fix for WSLg
 For diagnosing problems see <https://github.com/microsoft/wslg/wiki/Diagnosing-%22cannot-open-display%22-type-issues-with-WSLg>
 
@@ -296,5 +403,6 @@ ExecStart=ln -s /mnt/wslg/.X11-unix /tmp/
 [Install]
 WantedBy=sysinit.target
 ```
+
 
 
