@@ -10,14 +10,15 @@
 	- Excel 
 	- Powerpoint
 - ChemDraw
-- FoxitPDF
-- Insync
+- Foxit PDF Reader (free version)
+- Google Drive Client
 - Synology Drive Client
 - Adobe Software
 	- Illustrator
 	- Photoshop
-	- LightRoom
+	- LightRoom 
 - WSL2
+    - See WSL2 guide for details
 - WinSCP 
 	- Use Explorer interface. Then set display to "details"
 	- Winssh-Pageant for WinSCP <https://github.com/ndbeals/winssh-pageant>
@@ -50,10 +51,13 @@
 - geteduroam
 - GlobalProtect VPN
 - ScreentoGif
-- Anydesk
+- RustDesk
 - ThunderBird
 - WhatsApp
 - Spotify
 - Fonts
 	- MesloLGS
 	- DejaVu Sans
+- Anki
+- Stremio
+- HWInfo
