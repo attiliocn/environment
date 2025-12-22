@@ -171,6 +171,7 @@ alias ks='ls -1vh --group-directories-first'
 alias ll='ls -l'
 alias vi='nvim'
 alias ee='explorer.exe .'
+alias rsync='rsync -ah --info=progress2'
 ```
 
 ## DOTFILES
