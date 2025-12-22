@@ -2,16 +2,51 @@
 
 ## Base install
 - ArchWSL Official Distribution <https://wiki.archlinux.org/title/Install_Arch_Linux_on_WSL>
-- Update pacman mirrolist <https://archlinux.org/mirrorlist/>
-- yay <https://github.com/Jguer/yay>
-- PowerLevel 10k <https://github.com/romkatv/powerlevel10k>
-- mamba
+
+1. Install Arch Linux from Microsoft Store in WSL2 
+2. Add a password for the root user 
+```bash
+passwd
+```
+3. Create a new user and set a password
+```bash
+useradd -m attilio
+passwd attilio
+```
+4. Set this user as default in Arch Linux WSL (in Powershell)
+```powershell
+wsl --shutdown
+wsl --manage archlinux --set-default-user attilio
+```
+5. Change back to root, update the keyring and install sudo
+```bash
+su root
+pacman -Sy archlinux-keyring
+pacman -Syu
+pacman -S sudo
+```
+6. Add the wheel group to sudoers
+```bash
+echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
+```
+7. Add the user to the wheel group
+```bash
+usermod -aG wheel attilio
+```
+8. Restart the terminal (logout)
+9. Install yay <https://github.com/Jguer/yay>
+10. Install zsh and set as the default terminal
+```bash
+chsh -s /bin/zsh
+```
+11. Restart the terminal (logout)
+12. Install PowerLevel 10k <https://github.com/romkatv/powerlevel10k>
+13. Install mamba
 
 > 💡 **Tip:** Use `reflector` for select the best mirrors easily. 
 ```bash
 sudo reflector --country Brazil --latest 5 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 ```
-
 
 ## System Tools and Softwares
 - Install texlive from `https://tug.org/texlive/quickinstall.html`
