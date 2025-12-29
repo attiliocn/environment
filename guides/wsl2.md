@@ -48,41 +48,46 @@ chsh -s /bin/zsh
 sudo reflector --country Brazil --latest 5 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 ```
 
+14. Set up Windows 11 and WSL2 interoperability. Append the content below to `/etc/wsl.conf`
+```
+[interop]
+enabled = true
+appendWindowsPath = true
+```
+
 ## System Tools and Softwares
 - Install texlive from `https://tug.org/texlive/quickinstall.html`
 - Install the software listed below using yay
 
-    ```bash
-    yay -S \
-        borgbackup \
-        dos2unix \
-        git \
-        imagemagick \
-        inkscape \
-        neovim \
-        openbabel \
-        openssh \
-        pdftk \
-        perl-rename \
-        rclone \
-        rsync \
-        tree \
-        unzip \
-        wget \
-        xsel \
-        zsh \
-        keychain \
-        tmux \
-        man-db
-    ```
+```bash
+yay -S \
+    git \
+    wget \
+    dos2unix \
+    perl-rename \
+    rclone \
+    rsync \
+    tree \
+    unzip \
+    openssh \
+    keychain \
+    tmux \
+    man-db \
+    borgbackup \
+    pdftk \
+    imagemagick \
+    inkscape \
+    neovim
+```
 
-    ```bash
-    yay -S gcc gcc-fortran
-    ```
+```bash
+yay -S make lapack blas glew glm qt5 libxcrypt libxcrypt-compat
+```
 
-    ```bash
-    yay -S make lapack blas glew glm qt5 libxcrypt-compat
-    ```
+```bash
+yay -S gcc gcc-fortran
+```
+
 
 - CLIWizard
     ```bash
@@ -125,22 +130,19 @@ Update the `"$HOME"/.zshrc` file with the content below
 # Use modern completion system
 autoload -Uz compinit
 compinit
-zstyle ':completion:*' auto-description 'specify: %d'
+
+## defines the order of completion methods
 zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
+
+## case-insensitive matching, treat .,_,- as interchangeable and enable very flexible matching
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+
+## enables menu selection after pressing TAB twice
 zstyle ':completion:*' menu select=2
+
+## use LS_COLORS to color completion listings
 eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # ~/.zsh_history settings
 HISTSIZE=10000
@@ -156,9 +158,6 @@ bindkey "^[[F" end-of-line
 # zsh ls colors
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:*.tar=1;31:*.gz=1;31:*.tbz2=1;31"
 
-# environment variables
-export PATH=""$PATH":"$HOME"/bin"
-
 # aliases
 alias tmux='tmux -2'
 alias ls='ls --color=auto'
@@ -172,6 +171,9 @@ alias ll='ls -l'
 alias vi='nvim'
 alias ee='explorer.exe .'
 alias rsync='rsync -ah --info=progress2'
+alias reload='exec zsh'
+
+export PATH=""$PATH":"$HOME"/bin"
 ```
 
 ## DOTFILES
